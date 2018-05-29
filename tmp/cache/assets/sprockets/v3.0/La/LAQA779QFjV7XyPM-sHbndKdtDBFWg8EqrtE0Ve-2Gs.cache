@@ -1,0 +1,9 @@
+I"¦(function() {
+  $(function() {
+    return $('#comment_body').keyup(function() {
+      return $('#char_num').text($(this).val().length);
+    });
+  });
+
+}).call(this);
+:ET

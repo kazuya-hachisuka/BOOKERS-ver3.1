@@ -1,0 +1,27 @@
+<div class="page-header"></div>
+<body>
+<div class="container">
+<h1>Editing Book</h1>
+	<div class="form-group">
+		<%= form_for(@book) do |f| %>
+			<b> Title<%= f.text_field :title, class: 'form-control ' %></b>
+			<b> <OPTGROUP></OPTGROUP>opinion<br><%= f.text_area :body,class: 'form-control test_class'%>
+				<div class="count">残文字数:<span id="char_num">0</span></div><br>
+				<%= f.submit 'Update book', class: 'btn btn-primary btn-block' %>
+			</b>
+				<p><%= link_to 'Show', book_path(@book.id) %> |
+				<%= link_to 'Back', book_path(@book.id)%>
+				</p>
+		<% end %>
+	</div>
+</div>
+</body>
+<script src="/javascripts/application.js" type="text/javascript" charset="utf-8" async defer></script>
+<script>
+	$(function(){
+	$('#char_num').html(200-$('.test_class').val().length);
+	$('.test_class').bind('keydown keyup keypress change',function(){
+		$('#char_num').html(200-$('.test_class').val().length);
+		});
+	});
+</script>

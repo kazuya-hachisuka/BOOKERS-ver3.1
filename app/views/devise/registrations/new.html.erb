@@ -1,0 +1,44 @@
+
+<div class="page-header"></div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+    <h1>Sign up</h1>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <% if @user.errors.any? %>
+            <div id="error_explanation" class="alert alert-danger">
+              <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+              <ul>
+              <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+        <% end %>
+          <p class="field">
+            <%= f.label :name %><br>
+            <%= f.text_field :name %></br>
+          </p>
+          <p class="field">
+           <%= f.label :email %><br>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %><br>
+          </p>
+          <p class="field">
+            <%= f.label :password %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em><br>
+            <% end %>
+            <%= f.password_field :password, autocomplete: "off" %><br>
+          </p>
+          <p class="field">
+            <%= f.label :password_confirmation %><br>
+            <%= f.password_field :password_confirmation, autocomplete: "off" %>
+          </p>
+            <p class="actions"><%= f.submit "Sign up", class: 'btn btn-success' %></p>
+    <% end %>
+    <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>
+
