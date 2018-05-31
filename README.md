@@ -22,3 +22,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+*last modified 2018/5/31
+*コメント機能　削除まで追加　varidetion未搭載　
